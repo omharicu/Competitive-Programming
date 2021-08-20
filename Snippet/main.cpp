@@ -1,7 +1,7 @@
 /* Omhari */
 #include<bits/stdc++.h>
 using namespace std; 
-#include<chrono>
+#include<chrono>mycpp
 using namespace std::chrono;
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
@@ -23,8 +23,6 @@ using namespace __gnu_pbds;
 #define vt              vector
 #define pii             pair <int, int>
 #define mii             map<int, int>
-#define mxHeap(T)       priority_queue<T> //Max first
-#define mnHeap(T)       priority_queue<T, vector<T>, greater<T> >
 #define NF(v)           v.end()
 #define sz(v)           (ll)(v.size())
 #define all(v)          v.begin(), v.end() 
@@ -139,6 +137,9 @@ template<class H, class... T> void read(H& h, T&... t) { read(h); read(t...); }
 template<class T> void write(T& x) { cout << x <<" "; }
 template<class H, class... T> void write(H& h, T&... t) { write(h); write(t...); }
 template<class T> inline T ceil(T a, T b){return (a + b - 1)/b;}
+//Priority_Queue
+template<typename T> using mnHeap = priority_queue<T, vector<T>, greater<T>>;
+template<typename T> using mxHeap = priority_queue<T>;
 //Debugging
 void dprint(int64_t t) {cerr << t;}
 void dprint(int32_t t) {cerr << t;}
