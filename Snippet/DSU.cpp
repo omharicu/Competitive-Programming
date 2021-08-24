@@ -1,8 +1,10 @@
 struct DSU
 {
     vector<int> Parent, Size;
-    void dsu_init(int size)
+    int MAXN;
+    void init(int size)
     {
+        MAXN=size;
         Parent.resize(size+2);
         Size.resize(size+2);
 
@@ -10,17 +12,17 @@ struct DSU
             Parent[i]=i, Size[i]=1;
     }
 
-    int dsu_find(int v)
+    int Find(int v)
     {
         if(v==Parent[v])
             return v;
-        return Parent[v]=dsu_find(Parent[v]);
+        return Parent[v]=Find(Parent[v]);
     }
 
-    void dsu_union(int a, int b)
+    void Union(int a, int b)
     {
-        a=dsu_find(a);
-        b=dsu_find(b);
+        a=Find(a);
+        b=Find(b);
 
         if(a!=b)
         {
@@ -32,4 +34,12 @@ struct DSU
         }
     }
 
+    int components()
+    {
+        int c=0;
+        for(int i=1; i<=MAXN; i++)
+            if(i==Parent[i])
+                c++;
+        return c;
+    }
 };
