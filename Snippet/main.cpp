@@ -140,6 +140,12 @@ template<class T> inline T ceil(T a, T b){return (a + b - 1)/b;}
 //Priority_Queue
 template<typename T> using mnHeap = priority_queue<T, vector<T>, greater<T>>;
 template<typename T> using mxHeap = priority_queue<T>;
+//Unordered set and map
+template<typename T> using uset = unordered_set<T>;
+template<typename T1, typename T2> using umap = unordered_map<T1, T2>;
+//multi set and map
+template<typename T> using mset = multiset<T>;
+template<typename T1, typename T2> using mmap = multimap<T1, T2>;
 //Debugging
 void dprint(int64_t t) {cerr << t;}
 void dprint(int32_t t) {cerr << t;}
