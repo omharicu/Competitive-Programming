@@ -75,12 +75,12 @@ mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myRand(ll A, ll B) {return uniform_int_distribution<ll>(A, B)(rng);}
 ll nCr(ll n, ll r) { if(n<r) return 0; ll ans=1; if(r>n-r) r=n-r; 
 for(ll i=1; i<=r; i++) ans*=(n-i+1), ans/=i; return ans;}
-inline ll addM(ll a, ll b, ll m=mod) { return ((a % m) + (b % m)) % m; }
-inline ll subM(ll a, ll b, ll m=mod) { return ((a % m) - (b % m) + m) % m; }
-inline ll mulM(ll a, ll b, ll m=mod) { return ((a % m) * (b % m)) % m; }
-inline ll powM(ll a, ll b, ll m=mod) { ll ans = 1; a %= m; while (b) { if (b & 1)
+inline ll addM(ll a, ll b, ll m) { return ((a % m) + (b % m)) % m; }
+inline ll subM(ll a, ll b, ll m) { return ((a % m) - (b % m) + m) % m; }
+inline ll mulM(ll a, ll b, ll m) { return ((a % m) * (b % m)) % m; }
+inline ll powM(ll a, ll b, ll m) { ll ans = 1; a %= m; while (b) { if (b & 1)
 ans = (a * ans) % m; a = (a * a) % m; b >>= 1; } return ans; }
-inline ll divM(ll a, ll b, ll m=mod) { return mulM(a, powM(b, m-2)); }
+inline ll divM(ll a, ll b, ll m) { return mulM(a, powM(b, m-2, m), m); }
 inline void yes(bool ok, bool capital=true) { if (capital) { if (ok) cout << "YES\n"; 
 else cout << "NO\n"; } else{ if (ok) cout << "Yes\n"; else cout << "No\n"; } }
 
