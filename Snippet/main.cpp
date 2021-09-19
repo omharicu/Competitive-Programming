@@ -45,7 +45,7 @@ using namespace __gnu_pbds;
 #define Foo(it, box)    for(auto &it:box)
 #define FAST            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 //ordered_set s;
-#define o_set(T)        tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>
+template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //order_of_key (k) : Number of items strictly smaller than k .
 //find_by_order(k) : K-th element in a set (counting from zero).
 //------------------------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ template <class T1, class T2> void dprint(map <T1, T2> v)
 {cerr << "[ "; for (auto i : v) {dprint(i); cerr << " ";} cerr << "]";}
 template <class T1, class T2> void dprint(multimap <T1, T2> v) 
 {cerr << "[ "; for (auto i : v) {dprint(i); cerr << " ";} cerr << "]";}
-template <class T> void dprint(o_set(T) &v)
+template <class T> void dprint(oset<T> &v)
 {cerr<<"[ ";for(T i: v){dprint(i);cerr<<" ";}cerr << "]";}
 //------------------------------------------------------------------------------------------------
 
