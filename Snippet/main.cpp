@@ -124,14 +124,21 @@ void getPrime()
 }
 //-----------------------------------------------------------------------------------------------
 //------------------------------------Template---------------------------------------------------
+//Vector input
 template <typename T> istream &operator>>(istream &in, vector<T> &vec) 
-{for (auto &v : vec) in>>v; return in;} //Vector input
+{for (auto &v : vec) in>>v; return in;}
+//Vector output
 template <typename T> ostream& operator<<(ostream &out, vector<T> &vec) 
-{for (auto &v : vec) out<<v<<" "; return out;} //Vector output
+{for (auto &v : vec) out<<v<<" "; return out;}
+//Pair input
 template<typename T1,typename T2>istream& operator>>(istream& in,pair<T1,T2> &a)
 {in>>a.first>>a.second;return in;}
+//Pair output
 template<typename T1,typename T2>ostream& operator<<(ostream& out,pair<T1,T2> a)
 {out<<a.first<<" "<<a.second;return out;}
+//Find in vector O(logN)
+template <typename T1, typename T2> bool vfind(vector<T1> &v, T2 val)
+{ return binary_search(v.begin(), v.end(), val); }
 template<class T> void read(T& x) { cin >> x; }
 template<class H, class... T> void read(H& h, T&... t) { read(h); read(t...); }
 template<class T> void write(T& x) { cout << x <<" "; }
