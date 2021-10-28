@@ -139,6 +139,8 @@ template<typename T1,typename T2>ostream& operator<<(ostream& out,pair<T1,T2> a)
 //Find in vector O(logN)
 template <typename T1, typename T2> bool vfind(vector<T1> &v, T2 val)
 { return binary_search(v.begin(), v.end(), val); }
+//Assertion Check
+template<class T> void OK(T l, T r, T data){ assert(l<=data && data<=r);}
 template<class T> void read(T& x) { cin >> x; }
 template<class H, class... T> void read(H& h, T&... t) { read(h); read(t...); }
 template<class T> void write(T& x) { cout << x <<" "; }
