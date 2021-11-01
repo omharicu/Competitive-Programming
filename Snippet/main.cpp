@@ -1,11 +1,14 @@
 /* Omhari */
-#include<bits/stdc++.h>
-using namespace std; 
-#include<chrono>
-using namespace std::chrono;
+// #pragma GCC optimize("O3,unroll-loops")
+// #pragma GCC target("avx2,bmi2,lzcnt,popcnt")
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
+#include <sys/resource.h>
+#include<bits/stdc++.h>
+#include<chrono>
+using namespace std::chrono;
 using namespace __gnu_pbds;
+using namespace std; 
 //------------------------------------Define------------------------------------------------------
 #define F               first
 #define S               second
@@ -43,6 +46,7 @@ using namespace __gnu_pbds;
 #define For(i, a, b)    for(int i=a; i<b; i++)
 #define Forr(i, a, b)   for(int i=a; i>=b; i--)
 #define Foo(it, box)    for(auto &it:box)
+#define OK(l, r, val)   assert(l<=val && val<=r)
 #define FAST            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 //ordered_set s;
 template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
@@ -70,6 +74,14 @@ void _Time(int64_t duration){
     cerr << "Time: " << duration<< " ms" << endl;
     #endif
     }
+
+void IncStackSize()
+{
+    rlimit R;
+    getrlimit(RLIMIT_STACK, &R);
+    R.rlim_cur = R.rlim_max;
+    setrlimit(RLIMIT_STACK, &R);
+}
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myRand(ll A, ll B) {return uniform_int_distribution<ll>(A, B)(rng);}
@@ -139,8 +151,7 @@ template<typename T1,typename T2>ostream& operator<<(ostream& out,pair<T1,T2> a)
 //Find in vector O(logN)
 template <typename T1, typename T2> bool vfind(vector<T1> &v, T2 val)
 { return binary_search(v.begin(), v.end(), val); }
-//Assertion Check
-template<class T1, class T2, class T3> void OK(T1 l, T2 r, T3 data){ assert(l<=data && data<=r);}
+
 template<class T> void read(T& x) { cin >> x; }
 template<class H, class... T> void read(H& h, T&... t) { read(h); read(t...); }
 template<class T> void write(T& x) { cout << x <<" "; }
@@ -185,7 +196,6 @@ template <class T1, class T2> void dprint(multimap <T1, T2> v)
 template <class T> void dprint(oset<T> &v)
 {cerr<<"[ ";for(T i: v){dprint(i);cerr<<" ";}cerr << "]";}
 //------------------------------------------------------------------------------------------------
-
 void solve()
 {
     
@@ -195,6 +205,7 @@ int32_t main()
 {
     FAST;
     IO();
+    // IncStackSize();
     auto start=high_resolution_clock::now();
     // cout<<fixed<<setprecision(20);
 
