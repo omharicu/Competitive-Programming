@@ -3,7 +3,6 @@
 // #pragma GCC target("avx2,bmi2,lzcnt,popcnt")
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
-#include <sys/resource.h>
 #include<bits/stdc++.h>
 #include<chrono>
 using namespace std::chrono;
@@ -75,13 +74,14 @@ void _Time(int64_t duration){
     #endif
     }
 
-void IncStackSize()
-{
-    rlimit R;
-    getrlimit(RLIMIT_STACK, &R);
-    R.rlim_cur = R.rlim_max;
-    setrlimit(RLIMIT_STACK, &R);
-}
+// #include <sys/resource.h>
+// void IncStackSize()
+// {
+//     rlimit R;
+//     getrlimit(RLIMIT_STACK, &R);
+//     R.rlim_cur = R.rlim_max;
+//     setrlimit(RLIMIT_STACK, &R);
+// }
 
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myRand(ll A, ll B) {return uniform_int_distribution<ll>(A, B)(rng);}
