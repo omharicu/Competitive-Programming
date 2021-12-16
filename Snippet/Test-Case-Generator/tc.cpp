@@ -5,11 +5,13 @@ using namespace std;
 #define int long long
 #define pb push_back
 #define ll long long
+#define el endl
+#define For(i, a, b)    for(int i=a; i<b; i++)
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myRand(ll A, ll B) {return uniform_int_distribution<ll>(A, B)(rng);}
 int starting_idx = 1; // Test Case Gen starts from input01.txt
  
-const string in = "input";
+const string in = "tc/input";
 const string out = "output";
  
 string get_filename() {
