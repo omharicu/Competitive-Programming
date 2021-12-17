@@ -1,12 +1,12 @@
 /* Omhari */
 // #pragma GCC optimize("O3,unroll-loops")
 // #pragma GCC target("avx2,bmi2,lzcnt,popcnt")
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
+// #include <ext/pb_ds/assoc_container.hpp> 
+// #include <ext/pb_ds/tree_policy.hpp> 
 #include<bits/stdc++.h>
 #include<chrono>
 using namespace std::chrono;
-using namespace __gnu_pbds;
+// using namespace __gnu_pbds;
 using namespace std; 
 //------------------------------------Define------------------------------------------------------
 #define F               first
@@ -48,7 +48,7 @@ using namespace std;
 #define OK(l, r, val)   assert(l<=val && val<=r)
 #define FAST            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 //ordered_set s;
-template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+// template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //order_of_key (k) : Number of items strictly smaller than k .
 //find_by_order(k) : K-th element in a set (counting from zero).
 //------------------------------------------------------------------------------------------------
@@ -87,6 +87,7 @@ mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myRand(ll A, ll B) {return uniform_int_distribution<ll>(A, B)(rng);}
 ll nCr(ll n, ll r) { if(n<r) return 0; ll ans=1; if(r>n-r) r=n-r; 
 for(ll i=1; i<=r; i++) ans*=(n-i+1), ans/=i; return ans;}
+int gcd(int a, int b) { if (b == 0) return a; return gcd(b, a % b);}
 inline ll addM(ll a, ll b, ll m) { return ((a % m) + (b % m)) % m; }
 inline ll subM(ll a, ll b, ll m) { return ((a % m) - (b % m) + m) % m; }
 inline ll mulM(ll a, ll b, ll m) { return ((a % m) * (b % m)) % m; }
@@ -193,8 +194,8 @@ template <class T1, class T2> void dprint(map <T1, T2> v)
 {cerr << "[ "; for (auto i : v) {dprint(i); cerr << " ";} cerr << "]";}
 template <class T1, class T2> void dprint(multimap <T1, T2> v) 
 {cerr << "[ "; for (auto i : v) {dprint(i); cerr << " ";} cerr << "]";}
-template <class T> void dprint(oset<T> &v)
-{cerr<<"[ ";for(T i: v){dprint(i);cerr<<" ";}cerr << "]";}
+// template <class T> void dprint(oset<T> &v)
+// {cerr<<"[ ";for(T i: v){dprint(i);cerr<<" ";}cerr << "]";}
 //------------------------------------------------------------------------------------------------
 void solve()
 {
