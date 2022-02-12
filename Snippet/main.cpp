@@ -1,12 +1,9 @@
 /* Omhari */
 // #pragma GCC optimize("O3,unroll-loops")
 // #pragma GCC target("avx2,bmi2,lzcnt,popcnt")
-// #include <ext/pb_ds/assoc_container.hpp> 
-// #include <ext/pb_ds/tree_policy.hpp> 
 #include<bits/stdc++.h>
 #include<chrono>
 using namespace std::chrono;
-// using namespace __gnu_pbds;
 using namespace std; 
 //------------------------------------Define------------------------------------------------------
 #define F               first
@@ -48,6 +45,10 @@ using namespace std;
 #define OK(l, r, val)   assert(l<=val && val<=r)
 #define FAST            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 //ordered_set s;
+
+// #include <ext/pb_ds/assoc_container.hpp> 
+// #include <ext/pb_ds/tree_policy.hpp> 
+// using namespace __gnu_pbds;
 // template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //order_of_key (k) : Number of items strictly smaller than k .
 //find_by_order(k) : K-th element in a set (counting from zero).
@@ -73,6 +74,8 @@ void _Time(int64_t duration){
     cerr << "Time: " << duration<< " ms" << endl;
     #endif
     }
+
+// IncStackSize();
 
 // #include <sys/resource.h>
 // void IncStackSize()
