@@ -5,6 +5,10 @@
 #include<chrono>
 using namespace std::chrono;
 using namespace std; 
+//ordered_set s;
+// #include <ext/pb_ds/assoc_container.hpp> 
+// #include <ext/pb_ds/tree_policy.hpp> 
+// using namespace __gnu_pbds;
 //------------------------------------Define------------------------------------------------------
 #define F               first
 #define S               second
@@ -44,11 +48,9 @@ using namespace std;
 #define Foo(it, box)    for(auto &it:box)
 #define OK(l, r, val)   assert(l<=val && val<=r)
 #define FAST            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+
 //ordered_set s;
 
-// #include <ext/pb_ds/assoc_container.hpp> 
-// #include <ext/pb_ds/tree_policy.hpp> 
-// using namespace __gnu_pbds;
 // template<typename T> using oset = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 //order_of_key (k) : Number of items strictly smaller than k .
 //find_by_order(k) : K-th element in a set (counting from zero).
