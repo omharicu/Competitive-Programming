@@ -8,7 +8,7 @@ struct Binary_Lifting
     void init(int _n)
     {
         N = _n;
-        LOG = log(N) + 3;
+        LOG = log2(N) + 3;
 
         edge.resize(N + 1);
         up.resize(N + 1);
