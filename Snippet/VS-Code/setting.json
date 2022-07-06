@@ -85,8 +85,5 @@
         "jupyter-notebook": "left"
     },
     "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "json.schemas": [
-    
-    ]
+    "terminal.integrated.enableMultiLinePasteWarning": false
 }
