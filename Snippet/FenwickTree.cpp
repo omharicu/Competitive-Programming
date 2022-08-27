@@ -2,11 +2,10 @@ struct FenwickTree
 {
     int N;
     vector<int> BIT; // binary indexed tree(1-based)
-
-    void init(int n)
+    FenwickTree(int _n)
     {
-        N = n;
-        BIT.assign(n + 1, 0);
+        N = _n;
+        BIT.assign(N + 1, 0);
     }
 
     int sum(int idx)
