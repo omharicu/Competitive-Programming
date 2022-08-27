@@ -1,60 +1,67 @@
-struct segTree 
-{                       //1-based indexing.
+template <typename T>
+struct segTree // 1-based indexing.
+{
     int size, n;
-    vector<int> st, arr;
+    vector<T> st, arr;
 
-    void init(int sizeOfTree)
+    segTree(int sizeOfTree)
     {
-        n=sizeOfTree;
-        arr.resize(n+1);
-        size=1;
-        while(size<sizeOfTree) size<<=1;
+        n = sizeOfTree;
+        arr.resize(n + 1);
+        size = 1;
+        while (size < sizeOfTree)
+            size <<= 1;
 
-        size<<=1;
-        st.assign(size+1, 0LL);
+        size <<= 1;
+        st.resize(size + 1);
     }
 
-    void set(int si, int ss, int se, int idx, int val)
+    void set(int si, int ss, int se, int idx, T val)
     {
-        if(ss==se)
+        if (ss == se)
         {
-            st[si]=val;
-            arr[idx]=val;
+            st[si] = val;
+            arr[idx] = val;
             return;
         }
 
-        int mid=(ss+se)/2;
+        int mid = (ss + se) / 2;
 
-        if(idx<=mid)
-            set(2*si, ss, mid, idx, val);
-        else 
-            set(2*si+1, mid+1, se, idx, val);
+        if (idx <= mid)
+            set(2 * si, ss, mid, idx, val);
+        else
+            set(2 * si + 1, mid + 1, se, idx, val);
 
-        st[si]=st[2*si]+st[2*si+1];
+        st[si] = combine(st[2 * si], st[2 * si + 1]);
     }
 
-    int query(int si, int ss, int se, int l, int r)
+    T query(int si, int ss, int se, int l, int r)
     {
-        if(ss>r || se<l)
-            return 0;
+        if (ss > r || se < l)
+            return 0;                   // Handle it according to problem
 
-        if(l<=ss && r>=se)
-            return st[si];    
+        if (l <= ss && r >= se)
+            return st[si];
 
-        int mid=(ss+se)/2;
+        int mid = (ss + se) / 2;
 
-        int sumLeft=query(2*si, ss, mid, l, r);
-        int sumRight=query(2*si+1, mid+1, se, l, r);
+        T left = query(2 * si, ss, mid, l, r);
+        T right = query(2 * si + 1, mid + 1, se, l, r);
 
-        return sumLeft+sumRight;
+        return combine(left, right);
     }
 
-    void set(int idx, int val)
+    T combine(T x, T y)                 // Handle it according to problem
+    {
+        return x + y;
+    }
+
+    void set(int idx, T val)
     {
         set(1, 1, n, idx, val);
     }
 
-    int query(int l, int r)
+    T query(int l, int r)
     {
         return query(1, 1, n, l, r);
     }
