@@ -14,7 +14,6 @@ using namespace std;
 #define S               second
 #define int             long long // Warning
 #define ll              long long
-#define ull             unsigned long long
 #define db              long double
 #define ST              string
 #define NA              ST::npos //Not found in string
@@ -66,17 +65,6 @@ const int dy[8] = {0, 0, 1, -1, 1, -1, -1, 1};
 //                {R, L, U, D, RD, RU, LU, LD}
 //------------------------------------------------------------------------------------------------
 //------------------------------------Functions---------------------------------------------------
-void IO(){  
-    #ifdef Omhari
-    freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
-    #endif
-    }
-void _Time(int64_t duration){
-    #ifdef Omhari
-    cerr << "Time: " << duration<< " ms" << endl;
-    #endif
-    }
-
 // IncStackSize();
 
 // #include <sys/resource.h>
@@ -154,9 +142,6 @@ template<typename T1,typename T2>istream& operator>>(istream& in,pair<T1,T2> &a)
 //Pair output
 template<typename T1,typename T2>ostream& operator<<(ostream& out,pair<T1,T2> a)
 {out<<a.first<<" "<<a.second;return out;}
-//Find in vector O(logN)
-template <typename T1, typename T2> bool vfind(vector<T1> &v, T2 val)
-{ return binary_search(v.begin(), v.end(), val); }
 
 template<class T> void read(T& x) { cin >> x; }
 template<class H, class... T> void read(H& h, T&... t) { read(h); read(t...); }
@@ -210,7 +195,10 @@ void solve()
 int32_t main() 
 {
     FAST;
-    IO();
+    #ifdef Omhari
+        freopen("input.txt", "r", stdin); 
+        freopen("output.txt", "w", stdout);
+    #endif
     // IncStackSize();
     auto start=high_resolution_clock::now();
     // cout<<fixed<<setprecision(20);
@@ -227,6 +215,8 @@ int32_t main()
     auto stop=high_resolution_clock::now();
     auto duration=duration_cast<milliseconds>(stop - start);
 
-    _Time(duration.count());
+    #ifdef Omhari
+        cerr << "Time: " << duration.count() << " ms" << endl;
+    #endif
     return 0; 
 }
