@@ -2,8 +2,8 @@ struct Binary_Lifting
 {
     int N;
     int LOG;
-    vt<vi> edge, up;
-    vi depth;
+    vector<vector<int>> edge, up;
+    vector<int> depth;
 
     void init(int _n)
     {
@@ -13,7 +13,7 @@ struct Binary_Lifting
         edge.resize(N + 1);
         up.resize(N + 1);
 
-        For(i, 0, N + 1)
+        for(int i=0; i<=N; i++)
             edge[i]
                 .resize(0),
             up[i].assign(LOG, 0);
@@ -63,5 +63,15 @@ struct Binary_Lifting
         }
 
         return up[a][0];
+    }
+
+    int findKthParent(int node, int k)
+    {
+        if(depth[node]<k)
+            return -1;
+        for(int i=0; i<LOG; i++)
+            if((k&(1<<i)))
+                node=up[node][i];
+        return node;
     }
 };
