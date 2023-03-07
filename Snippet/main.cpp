@@ -109,11 +109,11 @@ void getPrime()
 
     bitset<MXP> isprime(0);
     isprime[0] = isprime[1] = 1;
-    for (int i = 2; i * i <= MXP; i++)
+    for (int i = 2; i * i < MXP; i++)
     {
         if (isprime[i] == 0)
         {
-            for (int j = i * i; j <= MXP; j += i)
+            for (int j = i * i; j < MXP; j += i)
             {
                 isprime[j] = 1;
                 
